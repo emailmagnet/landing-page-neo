@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Progress Notes - 2026-01-06
+
+### Features Implemented
+- **Hero Section**: Updated with dynamic input, integrated button, and responsive layout.
+- **Trust Bar**: Refined 4-column grid with gradient reveal effect.
+- **Second Voice**: Added AI insight cards with "Wix-style" rounded design.
+- **Pricing**: Implemented 3-tier pricing (Free, Starter, Growth).
+- **FAQ**: Added accordion-style FAQ section.
+- **Footer**: Added legal links and copyright.
+
+### Design & configuration
+- **Styling**: Migrated to Tailwind v4 variables, fixed font rendering (`Wix Madefor Display`), and established a 1080px desktop breakpoint.
+- **SEO**: Comprehensive metadata update (Title, Description, OpenGraph).
+- **Favicons**: Configured dynamic light/dark mode icons.
