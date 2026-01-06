@@ -19,6 +19,6 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
-    </InfiniteGridBackground>
-  );
+      {/*</InfiniteGridBackground>*/}
+      );
 }
