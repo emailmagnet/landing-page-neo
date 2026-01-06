@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <div className="font-display overflow-x-hidden">
       <Header />
-      <main className="flex-grow">
+      {/*<main className="flex-grow">
         <Hero />
         <TrustBar />
         <SecondVoice />
         <Pricing />
         <FAQ />
-      </main>
+      </main>*/}
       <Footer />
     </div>
   );
