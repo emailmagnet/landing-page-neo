@@ -9,7 +9,7 @@ import InfiniteGridBackground from "@/components/ui/infinite-grid-integration";
 
 export default function Home() {
   return (
-    <InfiniteGridBackground className="font-display overflow-x-hidden">
+    <div className="font-display overflow-x-hidden min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
         <Hero />
@@ -19,7 +19,6 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
-    </InfiniteGridBackground>
+    </div>
   );
 }
-
