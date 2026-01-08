@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "@phosphor-icons/react";
+import posthog from "posthog-js";
 
 export function Pricing() {
     const plans = [
@@ -100,6 +101,15 @@ export function Pricing() {
                             </p>
 
                             <button
+                                onClick={() => {
+                                    posthog.capture("pricing_plan_clicked", {
+                                        plan_name: plan.name,
+                                        plan_price: plan.price,
+                                        plan_period: plan.period,
+                                        button_text: plan.buttonText,
+                                        is_recommended: plan.recommended ?? false,
+                                    });
+                                }}
                                 className={`w-full py-4 rounded-full font-bold text-lg transition-all mb-8 ${plan.buttonStyle === 'primary'
                                     ? 'bg-emGreen text-white hover:bg-[#82a73d] shadow-md hover:shadow-lg'
                                     : 'bg-transparent border-2 border-emDark text-emDark hover:bg-emDark hover:text-white'

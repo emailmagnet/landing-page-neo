@@ -70,15 +70,43 @@ export function SecondVoice() {
                     {cards.map((card, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 * index }}
-                            className={`${card.bgClass} rounded-[32px] p-8 desktop:p-12 flex flex-col justify-end ${card.height} relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500`}
+                            initial={{
+                                opacity: 0,
+                                y: 60,
+                                scale: 0.9
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                scale: 1
+                            }}
+                            viewport={{
+                                once: true,
+                                margin: "-100px"
+                            }}
+                            transition={{
+                                duration: 0.7,
+                                delay: 0.15 * index,
+                                ease: [0.25, 0.4, 0.25, 1]
+                            }}
+                            whileHover={{
+                                scale: 1.03,
+                                transition: { duration: 0.3 }
+                            }}
+                            className={`${card.bgClass} rounded-[32px] p-8 desktop:p-12 flex flex-col justify-end ${card.height} relative overflow-hidden cursor-pointer`}
                         >
-                            <h3 className={`text-2xl desktop:text-4xl font-normal leading-tight ${card.textClass}`}>
+                            <motion.h3
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.6,
+                                    delay: 0.15 * index + 0.2
+                                }}
+                                className={`text-2xl desktop:text-4xl font-normal leading-tight ${card.textClass}`}
+                            >
                                 {card.text}
-                            </h3>
+                            </motion.h3>
                         </motion.div>
                     ))}
                 </div>

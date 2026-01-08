@@ -1,8 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import posthog from "posthog-js";
 
 export function Footer() {
+    const handleFooterLinkClick = (linkName: string, href: string, isExternal: boolean) => {
+        posthog.capture("footer_link_clicked", {
+            link_name: linkName,
+            link_url: href,
+            is_external: isExternal,
+        });
+    };
+
     return (
         <footer className="w-full bg-transparent z-10 pt-16 pb-8">
             <div className="max-w-[1600px] mx-auto px-4 desktop:px-6">
@@ -19,6 +28,7 @@ export function Footer() {
                             href="https://www.linkedin.com"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => handleFooterLinkClick("LinkedIn", "https://www.linkedin.com", true)}
                             className="text-emTextSecondary hover:text-emDark transition-colors text-sm font-medium"
                         >
                             LinkedIn
@@ -27,18 +37,21 @@ export function Footer() {
                             href="https://apps.shopify.com"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => handleFooterLinkClick("Shopify", "https://apps.shopify.com", true)}
                             className="text-emTextSecondary hover:text-emDark transition-colors text-sm font-medium"
                         >
                             Shopify
                         </Link>
                         <Link
                             href="/privacy"
+                            onClick={() => handleFooterLinkClick("Privacy Policy", "/privacy", false)}
                             className="text-emTextSecondary hover:text-emDark transition-colors text-sm font-medium"
                         >
                             Privacy Policy
                         </Link>
                         <Link
                             href="/terms"
+                            onClick={() => handleFooterLinkClick("Terms of Use", "/terms", false)}
                             className="text-emTextSecondary hover:text-emDark transition-colors text-sm font-medium"
                         >
                             Terms of Use

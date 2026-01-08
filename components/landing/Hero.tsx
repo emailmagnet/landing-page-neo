@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, MagicWand } from "@phosphor-icons/react";
+import posthog from "posthog-js";
 
 export function Hero() {
     const [inputValue, setInputValue] = useState("");
@@ -13,6 +14,22 @@ export function Hero() {
         value = value.replace(/^https?:\/\//, "");
 
         setInputValue(value);
+    };
+
+    const handleInputBlur = () => {
+        if (inputValue.trim()) {
+            posthog.capture("store_url_entered", {
+                store_url: inputValue,
+                has_myshopify_domain: inputValue.includes("myshopify.com"),
+            });
+        }
+    };
+
+    const handleGenerateClick = () => {
+        posthog.capture("generate_popup_clicked", {
+            store_url: inputValue || null,
+            has_store_url: inputValue.trim().length > 0,
+        });
     };
 
     const showPrefix = inputValue.length > 0;
@@ -48,6 +65,7 @@ export function Hero() {
                             type="url"
                             value={inputValue}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                             placeholder="Enter your Shopify Store URL..."
                             className={`w-full h-[60px] desktop:h-[76px] pr-4 bg-transparent border-none outline-none text-base desktop:text-xl text-emDark placeholder:text-gray-400 rounded-full desktop:rounded-none ${showPrefix ? 'pl-[4.5rem] desktop:pl-24' : 'pl-5 desktop:pl-6'
                                 }`}
@@ -55,7 +73,10 @@ export function Hero() {
                     </div>
 
                     {/* Generate Button */}
-                    <button className="h-[60px] desktop:h-[76px] px-8 desktop:px-12 bg-emGreen hover:bg-[#82a73d] text-white text-base desktop:text-xl font-bold rounded-full flex items-center justify-center gap-2 desktop:gap-3 transition-all shadow-md desktop:shadow-none hover:shadow-lg desktop:hover:shadow-none whitespace-nowrap">
+                    <button
+                        onClick={handleGenerateClick}
+                        className="h-[60px] desktop:h-[76px] px-8 desktop:px-12 bg-emGreen hover:bg-[#82a73d] text-white text-base desktop:text-xl font-bold rounded-full flex items-center justify-center gap-2 desktop:gap-3 transition-all shadow-md desktop:shadow-none hover:shadow-lg desktop:hover:shadow-none whitespace-nowrap"
+                    >
                         Generate
                         <MagicWand size={20} weight="fill" className="desktop:hidden" />
                         <MagicWand size={28} weight="fill" className="hidden desktop:block" />

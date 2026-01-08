@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus } from "@phosphor-icons/react";
+import posthog from "posthog-js";
 
 const faqs = [
     {
@@ -58,6 +59,16 @@ const faqs = [
 export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+    const handleFaqToggle = (index: number, question: string) => {
+        const isExpanding = openIndex !== index;
+        posthog.capture("faq_item_toggled", {
+            question: question,
+            question_index: index,
+            action: isExpanding ? "expanded" : "collapsed",
+        });
+        setOpenIndex(isExpanding ? index : null);
+    };
+
     return (
         <section className="relative w-full py-16 desktop:py-24 bg-transparent z-10">
             <div className="max-w-[1600px] mx-auto px-4 desktop:px-6">
@@ -85,7 +96,7 @@ export function FAQ() {
                             className="border-t border-emTextSecondary/20"
                         >
                             <button
-                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                onClick={() => handleFaqToggle(index, faq.question)}
                                 className="w-full py-8 text-left flex justify-between items-start group"
                             >
                                 <span className="text-xl desktop:text-2xl text-emDark font-normal pr-8 leading-snug">
