@@ -3,9 +3,12 @@
 import { useState } from "react";
 import { ArrowRight, MagicWand } from "@phosphor-icons/react";
 import posthog from "posthog-js";
+import { useFeatureFlagVariantKey } from 'posthog-js/react';
 
 export function Hero() {
     const [inputValue, setInputValue] = useState("");
+
+    const variant = useFeatureFlagVariantKey('magic-vs-money');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value;
@@ -30,6 +33,9 @@ export function Hero() {
             store_url: inputValue || null,
             has_store_url: inputValue.trim().length > 0,
         });
+
+        // Navigate to AI builder
+        window.location.href = "https://ai-builder-rho-six.vercel.app/";
     };
 
     const showPrefix = inputValue.length > 0;
@@ -42,13 +48,26 @@ export function Hero() {
 
                 {/* Headline */}
                 <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">
-                    Your Store's Perfect Pop-Up. <br className="hidden desktop:block" />
-                    AI-Generated in 30 Seconds.
+                    {variant === 'test' ? (
+                        <>
+                            Pop-Ups That Actually Convert. <br className="hidden desktop:block" />
+                            Built for Your Brand in 30 Seconds.
+                        </>
+                    ) : (
+                        <>
+                            Your Store's Perfect Pop-Up. <br className="hidden desktop:block" />
+                            AI-Generated in 30 Seconds.
+                        </>
+                    )}
                 </h1>
 
                 {/* Sub-headline */}
                 <p className="text-lg desktop:text-[22px] text-emTextSecondary font-medium leading-relaxed max-w-[900px] mb-10 desktop:mb-14">
-                    Our AI analyzes your brand, writes the copy, and designs a high-converting pop-up instantly. No drag-and-drop. No designers. Just magic.
+                    {variant === 'test' ? (
+                        "Stop losing sales to generic templates. Our AI studies your store and creates a custom pop-up proven to capture more emails and drive revenue—automatically."
+                    ) : (
+                        "Our AI analyzes your brand, writes the copy, and designs a high-converting pop-up instantly. No drag-and-drop. No designers. Just magic."
+                    )}
                 </p>
 
                 {/* Input + CTA Block */}
