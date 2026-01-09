@@ -10,6 +10,9 @@ export function Hero() {
 
     const variant = useFeatureFlagVariantKey('magic-vs-money');
 
+    console.log('🧪 Current A/B Test Variant:', variant);
+    console.log('📊 Showing version:', variant === 'test' ? 'B (Money/ROI)' : 'A (Magic/Innovation)');
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value;
 
@@ -50,8 +53,8 @@ export function Hero() {
                 <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">
                     {variant === 'test' ? (
                         <>
-                            Pop-Ups That Actually Convert. <br className="hidden desktop:block" />
-                            Built for Your Brand in 30 Seconds.
+                            Pop-Ups that actually convert. <br className="hidden desktop:block" />
+                            Built in 30 seconds.
                         </>
                     ) : (
                         <>
