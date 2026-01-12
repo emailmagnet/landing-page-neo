@@ -2,16 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import posthog from "posthog-js";
-
 export function Header() {
-    const handleInstallClick = () => {
-        posthog.capture("install_on_shopify_clicked", {
-            location: "header",
-            destination_url: "https://apps.shopify.com/emailmagnet",
-        });
-    };
-
     return (
         <header className="w-full flex items-center justify-between px-6 py-5 md:px-8 max-w-[1600px] mx-auto z-50 relative">
             <div className="flex items-center">
@@ -31,13 +22,15 @@ export function Header() {
             </nav>
 
             <div>
-                <Link
-                    href="https://apps.shopify.com/emailmagnet"
-                    onClick={handleInstallClick}
-                    className="bg-emGreen hover:bg-[#82a73d] text-white font-semibold rounded-full px-6 py-3 transition-colors text-sm md:text-base shadow-sm hover:shadow-md"
-                >
-                    Install on Shopify
-                </Link>
+                <div>
+                    <Image
+                        src="/images/logo/shopify-partners.svg"
+                        alt="Shopify Partners"
+                        width={140}
+                        height={40}
+                        className="h-8 w-auto opacity-90"
+                    />
+                </div>
             </div>
         </header>
     );

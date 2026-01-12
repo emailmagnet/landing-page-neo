@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, MagicWand } from "@phosphor-icons/react";
+import { MagicWandIcon } from "@phosphor-icons/react";
 import posthog from "posthog-js";
 import { useFeatureFlagVariantKey } from 'posthog-js/react';
 
@@ -44,7 +44,7 @@ export function Hero() {
     const showPrefix = inputValue.length > 0;
 
     return (
-        <section className="relative w-full flex flex-col items-center justify-center pt-24 pb-20 desktop:pt-36 desktop:pb-32 px-4 desktop:px-6 text-center z-10 transition-all duration-300">
+        <section className="relative w-full flex-grow flex flex-col items-center justify-center px-4 desktop:px-6 text-center z-10 transition-all duration-300">
 
             {/* Centered Content Container - max-width controlled here */}
             <div className="max-w-[1600px] w-full flex flex-col items-center">
@@ -100,8 +100,8 @@ export function Hero() {
                         className="h-[60px] desktop:h-[76px] px-8 desktop:px-12 bg-emGreen hover:bg-[#82a73d] text-white text-base desktop:text-xl font-bold rounded-full flex items-center justify-center gap-2 desktop:gap-3 transition-all shadow-md desktop:shadow-none hover:shadow-lg desktop:hover:shadow-none whitespace-nowrap"
                     >
                         Generate
-                        <MagicWand size={20} weight="fill" className="desktop:hidden" />
-                        <MagicWand size={28} weight="fill" className="hidden desktop:block" />
+                        <MagicWandIcon size={20} weight="fill" className="desktop:hidden" />
+                        <MagicWandIcon size={28} weight="fill" className="hidden desktop:block" />
                     </button>
                 </div>
 

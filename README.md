@@ -35,7 +35,20 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Progress Notes - 2026-01-06
+## Progress Notes - 2026-01-12
+
+### 1. Example Gallery Implementation
+- Refactored `ExampleGallery` using a masonry-style layout (adapted from `@ss-blocks/gallery-component-01`).
+- Implemented **A/B Testing** with PostHog (`example-gallery-vs-none` flag) to conditionally hide the section.
+- Applied **10% Zoom Effect** to images to hide edges and create a premium look.
+
+### 2. Header & Branding
+- Replaced the "Install on Shopify" button with a static **Shopify Partners** logo to reduce visual competition with the main CTA.
+- Pushed the `TrustBar` below the fold by controlling the layout height.
+
+### 3. Layout Enhancements
+- Implemented **Full-Screen Hero**: Wrapped Header + Hero in a `min-h-screen` container to ensure the initial view is clean and focused.
+- Verified responsive behavior on mobile (1-column gallery) and tablet (4-column gallery).
 
 ### Features Implemented
 - **Hero Section**: Updated with dynamic input, integrated button, and responsive layout.
