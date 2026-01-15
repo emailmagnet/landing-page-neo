@@ -7,6 +7,7 @@ import { Pricing } from "@/components/landing/Pricing";
 import { FAQ } from "@/components/landing/FAQ";
 import { ExampleGallery } from "@/components/landing/ExampleGallery";
 import InfiniteGridBackground from "@/components/ui/infinite-grid-integration";
+import { CaseStudySection } from "@/components/landing/CaseStudySection";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <main className="flex-grow">
         {/* TrustBar starts below the fold */}
         <TrustBar />
+        <CaseStudySection />
         <ExampleGallery />
         <SecondVoice />
         <Pricing />
