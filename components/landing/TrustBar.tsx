@@ -35,9 +35,8 @@ export function TrustBar() {
     };
 
     return (
-        <section className="relative w-full py-16 desktop:py-24 z-10">
-            {/* Blurred background overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,white_20%,white_80%,transparent_100%)] pointer-events-none -z-10" />
+        <section className="relative w-full py-16 desktop:py-24 z-10 bg-[#FFFFFF]">
+
 
             <div className="max-w-[1600px] mx-auto px-4 desktop:px-6 relative">
 

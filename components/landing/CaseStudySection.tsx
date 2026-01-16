@@ -127,7 +127,7 @@ const CASE_STUDIES = [
 export function CaseStudySection() {
     return (
         <section
-            className="py-24 desktop:py-32 bg-transparent w-full"
+            className="py-24 desktop:py-32 bg-[#F1F5F9] w-full"
             aria-labelledby="case-studies-heading"
         >
             <div className="max-w-[1600px] w-full mx-auto px-4 desktop:px-6">

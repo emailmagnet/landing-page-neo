@@ -53,7 +53,7 @@ export function Pricing() {
     ];
 
     return (
-        <section className="relative w-full py-16 desktop:py-24 bg-transparent z-10">
+        <section className="relative w-full py-16 desktop:py-24 bg-[#F1F5F9] z-10">
             <div className="max-w-[1600px] mx-auto px-4 desktop:px-6">
 
                 {/* Header */}

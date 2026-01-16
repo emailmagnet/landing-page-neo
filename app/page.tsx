@@ -6,12 +6,12 @@ import { SecondVoice } from "@/components/landing/SecondVoice";
 import { Pricing } from "@/components/landing/Pricing";
 import { FAQ } from "@/components/landing/FAQ";
 import { ExampleGallery } from "@/components/landing/ExampleGallery";
-import InfiniteGridBackground from "@/components/ui/infinite-grid-integration";
+
 import { CaseStudySection } from "@/components/landing/CaseStudySection";
 
 export default function Home() {
   return (
-    <InfiniteGridBackground className="font-display overflow-x-hidden">
+    <div className="font-display overflow-x-hidden bg-[#FCFBF8]">
       {/* Full screen "Above the Fold" section */}
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -28,7 +28,7 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
-    </InfiniteGridBackground>
+    </div>
   );
 }
 

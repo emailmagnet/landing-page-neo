@@ -5,6 +5,8 @@ import { MagicWandIcon } from "@phosphor-icons/react";
 import posthog from "posthog-js";
 import { useFeatureFlagVariantKey } from 'posthog-js/react';
 
+import { GradientBackground } from "@/components/ui/gradient-background";
+
 export function Hero() {
     const [inputValue, setInputValue] = useState("");
 
@@ -43,11 +45,27 @@ export function Hero() {
 
     const showPrefix = inputValue.length > 0;
 
+    const saturatedGradients = [
+        "linear-gradient(135deg, #a5d8ff 0%, #d4f7b5 100%)", // Start
+        "linear-gradient(135deg, #d4f7b5 0%, #a5d8ff 100%)", // Middle
+        "linear-gradient(135deg, #a5d8ff 0%, #d4f7b5 100%)", // End (Matches Start)
+    ];
+
     return (
-        <section className="relative w-full flex-grow flex flex-col items-center justify-center px-4 desktop:px-6 text-center z-10 transition-all duration-300">
+        <section className="relative w-full flex-grow flex flex-col items-center justify-center px-4 desktop:px-6 text-center z-10 transition-all duration-300 bg-[#FCFBF8] overflow-hidden">
+
+            {/* Gradient Background with Top Fade Mask */}
+            <GradientBackground
+                gradients={saturatedGradients}
+                className="absolute inset-0 z-0 pointer-events-none min-h-0" // override min-h-screen
+                style={{
+                    maskImage: "linear-gradient(to bottom, transparent 0%, black 40%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 40%)"
+                }}
+            />
 
             {/* Centered Content Container - max-width controlled here */}
-            <div className="max-w-[1600px] w-full flex flex-col items-center">
+            <div className="max-w-[1600px] w-full flex flex-col items-center relative z-10">
 
                 {/* Headline */}
                 <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">

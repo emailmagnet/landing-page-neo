@@ -13,7 +13,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="w-full bg-transparent z-10 pt-16 pb-8">
+        <footer className="w-full bg-[#F1F5F9] z-10 pt-16 pb-8">
             <div className="max-w-[1600px] mx-auto px-4 desktop:px-6">
                 <div className="border-t border-emTextSecondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
 
