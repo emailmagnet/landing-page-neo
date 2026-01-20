@@ -5,7 +5,8 @@ import { MagicWandIcon } from "@phosphor-icons/react";
 import posthog from "posthog-js";
 import { useFeatureFlagVariantKey } from 'posthog-js/react';
 
-import { GradientBackground } from "@/components/ui/gradient-background";
+import { Typewriter } from "@/components/ui/typewriter";
+import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 
 export function Hero() {
     const [inputValue, setInputValue] = useState("");
@@ -55,14 +56,25 @@ export function Hero() {
         <section className="relative w-full flex-grow flex flex-col items-center justify-center px-4 desktop:px-6 text-center z-10 transition-all duration-300 bg-[#FCFBF8] overflow-hidden">
 
             {/* Gradient Background with Top Fade Mask */}
-            <GradientBackground
-                gradients={saturatedGradients}
-                className="absolute inset-0 z-0 pointer-events-none min-h-0" // override min-h-screen
+            <div
+                className="absolute inset-0 z-0 pointer-events-none min-h-0"
                 style={{
                     maskImage: "linear-gradient(to bottom, transparent 0%, black 40%)",
                     WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 40%)"
                 }}
-            />
+            >
+                <AnimatedGradientBackground
+                    gradientColors={[
+                        "#FCFBF8",
+                        "#2979FF",
+                        "#FF80AB",
+                        "#FF6D00",
+                        "#FFD600",
+                        "#00E676",
+                        "#3D5AFE"
+                    ]}
+                />
+            </div>
 
             {/* Centered Content Container - max-width controlled here */}
             <div className="max-w-[1600px] w-full flex flex-col items-center relative z-10">
@@ -71,25 +83,53 @@ export function Hero() {
                 <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">
                     {variant === 'test' ? (
                         <>
-                            Pop-Ups that actually convert. <br className="hidden desktop:block" />
-                            Built in 30 seconds.
+                            Turn More Visitors <br className="hidden desktop:block" />
+                            Into Customers.
                         </>
                     ) : (
                         <>
-                            Your Store's Perfect Pop-Up. <br className="hidden desktop:block" />
-                            AI-Generated in 30 Seconds.
+                            Instant, On-Brand <br className="hidden desktop:block" />
+                            Pop-Ups That Sell.
                         </>
                     )}
                 </h1>
 
                 {/* Sub-headline */}
-                <p className="text-lg desktop:text-[22px] text-emTextSecondary font-medium leading-relaxed max-w-[900px] mb-10 desktop:mb-14">
+                <div className="text-lg desktop:text-[22px] text-emTextSecondary font-medium leading-relaxed max-w-[900px] mb-10 desktop:mb-14">
                     {variant === 'test' ? (
-                        "Stop losing sales to generic templates. Our AI studies your store and creates a custom pop-up proven to capture more emails and drive revenue—automatically."
+                        <>
+                            Use AI to automatically{" "}
+                            <Typewriter
+                                text={[
+                                    "capture more leads.",
+                                    "drive higher revenue.",
+                                    "slash bounce rates.",
+                                    "personalize every offer."
+                                ]}
+                                speed={40}
+                                waitTime={1500}
+                                loop={true}
+                                cursorChar="|"
+                            />
+                        </>
                     ) : (
-                        "Our AI analyzes your brand, writes the copy, and designs a high-converting pop-up instantly. No drag-and-drop. No designers. Just magic."
+                        <>
+                            It’s not just a builder. It’s{" "}
+                            <Typewriter
+                                text={[
+                                    "your expert copywriter.",
+                                    "your senior designer.",
+                                    "your conversion strategist.",
+                                    "your growth partner."
+                                ]}
+                                speed={40}
+                                waitTime={1500}
+                                loop={true}
+                                cursorChar="|"
+                            />
+                        </>
                     )}
-                </p>
+                </div>
 
                 {/* Input + CTA Block */}
                 <div className="w-full max-w-[800px] flex flex-col desktop:flex-row desktop:p-2 desktop:bg-white desktop:border-[2px] desktop:border-[#e6e6e6] desktop:rounded-full desktop:shadow-[0_4px_30px_rgba(0,0,0,0.04)] desktop:focus-within:border-emBlue desktop:focus-within:ring-4 desktop:focus-within:ring-emBlue/10 transition-all gap-3 desktop:gap-0">
@@ -115,7 +155,7 @@ export function Hero() {
                     {/* Generate Button */}
                     <button
                         onClick={handleGenerateClick}
-                        className="h-[60px] desktop:h-[76px] px-8 desktop:px-12 bg-emGreen hover:bg-[#82a73d] text-white text-base desktop:text-xl font-bold rounded-full flex items-center justify-center gap-2 desktop:gap-3 transition-all shadow-md desktop:shadow-none hover:shadow-lg desktop:hover:shadow-none whitespace-nowrap"
+                        className="h-[60px] desktop:h-[76px] px-8 desktop:px-12 bg-[#0A3B32] hover:bg-[#0A3B32]/90 text-white text-base desktop:text-xl font-bold rounded-full flex items-center justify-center gap-2 desktop:gap-3 transition-all shadow-md desktop:shadow-none hover:shadow-lg desktop:hover:shadow-none whitespace-nowrap"
                     >
                         Generate
                         <MagicWandIcon size={20} weight="fill" className="desktop:hidden" />
