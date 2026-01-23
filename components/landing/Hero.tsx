@@ -83,13 +83,13 @@ export function Hero() {
                 <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">
                     {variant === 'test' ? (
                         <>
-                            Turn More Visitors <br className="hidden desktop:block" />
-                            Into Customers.
+                            AI That Builds Better Pop-Ups <br className="hidden desktop:block" />
+                            Than Any Human Expert
                         </>
                     ) : (
                         <>
-                            Instant, On-Brand <br className="hidden desktop:block" />
-                            Pop-Ups That Sell.
+                            See Your Highest-Converting Pop-Up <br className="hidden desktop:block" />
+                            Before You Install Anything
                         </>
                     )}
                 </h1>
