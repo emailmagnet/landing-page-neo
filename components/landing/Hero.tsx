@@ -80,17 +80,11 @@ export function Hero() {
             <div className="max-w-[1600px] w-full flex flex-col items-center relative z-10">
 
                 {/* Headline */}
-                <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[900px]">
+                <h1 className="text-4xl desktop:text-[64px] font-normal text-emDark leading-[1.1] mb-6 tracking-tight max-w-[1000px] text-balance">
                     {variant === 'test' ? (
-                        <>
-                            AI That Builds Better Pop-Ups <br className="hidden desktop:block" />
-                            Than Any Human Expert
-                        </>
+                        "AI That Builds Better Pop-Ups Than Any Human Expert"
                     ) : (
-                        <>
-                            See Your Highest-Converting Pop-Up <br className="hidden desktop:block" />
-                            Before You Install Anything
-                        </>
+                        "See Your Highest-Converting Pop-Up Before You Install Anything"
                     )}
                 </h1>
 
